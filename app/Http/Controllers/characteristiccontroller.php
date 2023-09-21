@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Characteristic;
+use App\Models\characteristic;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCharacteristic;
 
@@ -10,7 +10,7 @@ use App\Http\Requests\StoreCharacteristic;
  * Class CharacteristicController
  * @package App\Http\Controllers
  */
-class CharacteristicController extends Controller
+class characteristicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class CharacteristicController extends Controller
      */
     public function index()
     {
-        $characteristics = Characteristic::paginate(10);
+        $characteristics = characteristic::paginate(10);
 
         return view('characteristic.index', compact('characteristics'))
             ->with('i', (request()->input('page', 1) - 1) * $characteristics->perPage());
@@ -32,7 +32,7 @@ class CharacteristicController extends Controller
      */
     public function create()
     {
-        $characteristic = new Characteristic();
+        $characteristic = new characteristic();
         return view('characteristic.create', compact('characteristic'));
     }
 
@@ -44,9 +44,9 @@ class CharacteristicController extends Controller
      */
     public function store(StoreCharacteristic $request)
     {
-        request()->validate(Characteristic::$rules);
+        request()->validate(characteristic::$rules);
 
-        $characteristic = Characteristic::create($request->all());
+        $characteristic = characteristic::create($request->all());
 
         return redirect()->route('characteristics.index')
             ->with('success', 'Characteristic created successfully.');
@@ -60,7 +60,7 @@ class CharacteristicController extends Controller
      */
     public function show($id)
     {
-        $characteristic = Characteristic::find($id);
+        $characteristic = characteristic::find($id);
 
         return view('characteristic.show', compact('characteristic'));
     }
@@ -73,7 +73,7 @@ class CharacteristicController extends Controller
      */
     public function edit($id)
     {
-        $characteristic = Characteristic::find($id);
+        $characteristic = characteristic::find($id);
 
         return view('characteristic.edit', compact('characteristic'));
     }
@@ -85,9 +85,9 @@ class CharacteristicController extends Controller
      * @param  Characteristic $characteristic
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreCharacteristic $request, Characteristic $characteristic)
+    public function update(StoreCharacteristic $request, characteristic $characteristic)
     {
-        request()->validate(Characteristic::$rules);
+        request()->validate(characteristic::$rules);
 
         $characteristic->update($request->all());
 
@@ -102,7 +102,7 @@ class CharacteristicController extends Controller
      */
     public function destroy($id)
     {
-        $characteristic = Characteristic::find($id)->delete();
+        $characteristic = characteristic::find($id)->delete();
 
         return redirect()->route('characteristics.index')
             ->with('success', 'Characteristic deleted successfully');
