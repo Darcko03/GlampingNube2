@@ -3,7 +3,7 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\permissionController;
-use App\Http\Controllers\serviceController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\domecontroller;
 use App\Http\Controllers\characteristiccontroller;
