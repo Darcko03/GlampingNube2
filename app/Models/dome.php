@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Dome extends Model
+class dome extends Model
 {
     
     static $rules = [
