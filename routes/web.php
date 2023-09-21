@@ -2,7 +2,7 @@
 
 
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\permissionController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\domecontroller;
@@ -83,7 +83,7 @@ Route::resource('services', ServiceController::class)->names([
     'destroy' => 'services.destroy',
 ])->middleware('auth');
 
-Route::resource('permissions', permissionController::class)->names([
+Route::resource('permissions', PermissionController::class)->names([
     'index' => 'permissions.index',
     'create' => 'permissions.create',
     'store' => 'permissions.store',
