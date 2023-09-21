@@ -47,7 +47,7 @@
         @if(config('adminlte.right_sidebar'))
             @include('adminlte::partials.sidebar.right-sidebar')
         @endif
-        <script src="{{ asset('js/booking-form.js') }}"></script>
+        <script src="{{ secure_asset('js/booking-form.js') }}"></script>
     </div>
 @stop
 
