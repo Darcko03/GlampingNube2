@@ -1,0 +1,24 @@
+<div class="box box-info padding-1">
+    <div class="box-body">
+        
+        <div class="form-group">
+            {{ Form::label('Nombre') }}
+            {{ Form::text('name', $role->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+            {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+    </div>
+    <h6><b>Selecciona los permisos:</b></h6>
+
+    <div class="form-check">
+        @foreach($permissions as $permission)
+        <input type="checkbox" name="permissions[]" value="{{ $permission->id }}" id="permission_{{ $permission->id }}"
+               {{ $permission->name === 'home' || in_array($permission->id, $role->permissions->pluck('id')->toArray()) ? 'checked' : '' }}>
+        <label for="permission_{{ $permission->id }}">{{ $permission->name }}</label><br>
+        @endforeach
+    </div>
+
+    </div>
+    <div class="box-footer mt20">
+        <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+    </div>
+</div>
