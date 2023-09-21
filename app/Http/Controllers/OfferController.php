@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Offer;
+use App\Models\offer;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreOffer;
 
@@ -19,7 +19,7 @@ class OfferController extends Controller
      */
     public function index()
     {
-        $offers = Offer::paginate(10);
+        $offers = offer::paginate(10);
 
         return view('offer.index', compact('offers'))
             ->with('i', (request()->input('page', 1) - 1) * $offers->perPage());
@@ -32,7 +32,7 @@ class OfferController extends Controller
      */
     public function create()
     {
-        $offer = new Offer();
+        $offer = new offer();
         return view('offer.create', compact('offer'));
     }
 
@@ -44,9 +44,9 @@ class OfferController extends Controller
      */
     public function store(StoreOffer $request)
     {
-        request()->validate(Offer::$rules);
+        request()->validate(offer::$rules);
 
-        $offer = Offer::create($request->all());
+        $offer = offer::create($request->all());
 
         return redirect()->route('offers.index')
             ->with('success', 'Offer created successfully.');
@@ -60,7 +60,7 @@ class OfferController extends Controller
      */
     public function show($id)
     {
-        $offer = Offer::find($id);
+        $offer = offer::find($id);
 
         return view('offer.show', compact('offer'));
     }
@@ -73,7 +73,7 @@ class OfferController extends Controller
      */
     public function edit($id)
     {
-        $offer = Offer::find($id);
+        $offer = offer::find($id);
 
         return view('offer.edit', compact('offer'));
     }
@@ -85,9 +85,9 @@ class OfferController extends Controller
      * @param  Offer $offer
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreOffer $request, Offer $offer)
+    public function update(StoreOffer $request, offer $offer)
     {
-        request()->validate(Offer::$rules);
+        request()->validate(offer::$rules);
 
         $offer->update($request->all());
 
@@ -102,7 +102,7 @@ class OfferController extends Controller
      */
     public function destroy($id)
     {
-        $offer = Offer::find($id)->delete();
+        $offer = offer::find($id)->delete();
 
         return redirect()->route('offers.index')
             ->with('success', 'Offer deleted successfully');
