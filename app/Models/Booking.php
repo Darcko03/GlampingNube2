@@ -72,21 +72,21 @@ class Booking extends Model
 
     public function domes()
     {
-        return $this->belongsToMany(Dome::class, 'Dome_Details')
+        return $this->belongsToMany(dome::class, 'dome_details')
             ->withPivot('price')
             ->withTimestamps();
     }
 
     public function services()
     {
-        return $this->belongsToMany(Service::class, 'Service_Details')
+        return $this->belongsToMany(Service::class, 'service_details')
             ->withPivot('price')
             ->withTimestamps();
     }
 
     public function offer()
     {
-        return $this->belongsTo(Offer::class);
+        return $this->belongsTo(offer::class);
     }
 }
 
