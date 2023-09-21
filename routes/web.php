@@ -4,8 +4,8 @@
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\permissionController;
 use App\Http\Controllers\serviceController;
-use App\Http\Controllers\offerController;
-use App\Http\Controllers\domeController;
+use App\Http\Controllers\OfferController;
+use App\Http\Controllers\domecontroller;
 use App\Http\Controllers\characteristiccontroller;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -43,7 +43,7 @@ Route::get('/home', function() {
 
 //Route::resource('characteristicss', characteristicscontroller::class)->parameters(['characteristicss'=>'characteristics'])->names('characteristics');
 
-Route::resource('characteristics', characteristicController::class)->names([
+Route::resource('characteristics', characteristiccontroller::class)->names([
     'index' => 'characteristics.index',
     'create' => 'characteristics.create',
     'store' => 'characteristics.store',
@@ -53,7 +53,7 @@ Route::resource('characteristics', characteristicController::class)->names([
     'destroy' => 'characteristics.destroy',
 ])->middleware('auth');
 
-Route::resource('domes', domeController::class)->names([
+Route::resource('domes', domecontroller::class)->names([
     'index' => 'domes.index',
     'create' => 'domes.create',
     'store' => 'domes.store',
@@ -63,7 +63,7 @@ Route::resource('domes', domeController::class)->names([
     'destroy' => 'domes.destroy',
 ])->middleware('auth');
 
-Route::resource('offers', offerController::class)->names([
+Route::resource('offers', OfferController::class)->names([
     'index' => 'offers.index',
     'create' => 'offers.create',
     'store' => 'offers.store',
