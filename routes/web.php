@@ -4,8 +4,8 @@
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\permissionController;
 use App\Http\Controllers\serviceController;
-use App\Http\Controllers\OfferController;
-use App\Http\Controllers\DomeController;
+use App\Http\Controllers\offerController;
+use App\Http\Controllers\domeController;
 use App\Http\Controllers\characteristiccontroller;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
