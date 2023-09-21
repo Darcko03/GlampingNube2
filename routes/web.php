@@ -73,7 +73,7 @@ Route::resource('offers', OfferController::class)->names([
     'destroy' => 'offers.destroy',
 ])->middleware('auth');
 
-Route::resource('services', serviceController::class)->names([
+Route::resource('services', ServiceController::class)->names([
     'index' => 'services.index',
     'create' => 'services.create',
     'store' => 'services.store',
