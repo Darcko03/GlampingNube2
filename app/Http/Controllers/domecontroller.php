@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Characteristic;
-use App\Models\Dome;
+use App\Models\characteristic;
+use App\Models\dome;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreDome;
 
@@ -11,7 +11,7 @@ use App\Http\Requests\StoreDome;
  * Class DomeController
  * @package App\Http\Controllers
  */
-class DomeController extends Controller
+class domeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +21,7 @@ class DomeController extends Controller
     public function index()
     {
         
-        $domes = Dome::paginate(10);
+        $domes = dome::paginate(10);
 
         return view('dome.index', compact('domes'))
             ->with('i', (request()->input('page', 1) - 1) * $domes->perPage());
@@ -35,7 +35,7 @@ class DomeController extends Controller
     public function create()
     {
         $characteristics = Characteristic::all();
-        $dome = new Dome();
+        $dome = new dome();
         return view('dome.create', compact('dome','characteristics'));
     }
 
@@ -47,9 +47,9 @@ class DomeController extends Controller
      */
     public function store(StoreDome $request)
     {
-        request()->validate(Dome::$rules);
+        request()->validate(dome::$rules);
 
-        $dome = Dome::create($request->all());
+        $dome = dome::create($request->all());
 
         $dome->characteristics()->sync($request->input('characteristics'));
 
@@ -66,7 +66,7 @@ class DomeController extends Controller
     public function show($id)
     {
         
-        $dome = Dome::find($id);
+        $dome = dome::find($id);
         $characteristics = Characteristic::all();
 
         return view('dome.show', compact('dome','characteristics'));
@@ -80,8 +80,8 @@ class DomeController extends Controller
      */
     public function edit($id)
     {
-        $dome = Dome::find($id);
-        $characteristics = Characteristic::all();
+        $dome = dome::find($id);
+        $characteristics = characteristic::all();
 
         return view('dome.edit', compact('dome','characteristics'));
     }
@@ -93,9 +93,9 @@ class DomeController extends Controller
      * @param  Dome $dome
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreDome $request, Dome $dome)
+    public function update(StoreDome $request, dome $dome)
     {
-        request()->validate(Dome::$rules);
+        request()->validate(dome::$rules);
 
         $dome->update($request->all());
 
@@ -112,7 +112,7 @@ class DomeController extends Controller
      */
     public function destroy($id)
     {
-        $dome = Dome::find($id)->delete();
+        $dome = dome::find($id)->delete();
 
         return redirect()->route('domes.index')
             ->with('success', 'Domo eliminado satisfactoriamente');
