@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Characteristic;
+use App\Models\characteristic;
 use App\Models\Customer;
 use App\Models\Dome;
 use App\Models\Offer;
@@ -40,7 +40,7 @@ class RoleSeeder extends Seeder
 
         User::create(['name' => 'Jefe', 'email' => 'admin@nube.com', 'password' => '12345678']);
         User::create(['name' => 'Empleado', 'email' => 'asistente@nube.com', 'password' => '12345678']);
-        Characteristic::create(['name' => 'Tv Hd','description' => 'television mamalona']);
+        characteristic::create(['name' => 'Tv Hd','description' => 'television mamalona']);
         Dome::create(['name' => 'Margarita','state' => '0','price' => '40000','location' => 'sur','description' => 'Lindo domo en un lago','capacity' => '4']);
         Service::create(['name' => 'Piscina','state' => '0','price' => '20000','quantity' => '10']);
         Service::create(['name' => 'cabalgata','state' => '0','price' => '30000','quantity' => '10']);
