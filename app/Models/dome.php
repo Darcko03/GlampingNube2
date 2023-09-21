@@ -43,7 +43,7 @@ class dome extends Model
 
     public function characteristics()
     {
-        return $this->belongsToMany(characteristic::class, 'Characteristic_Domes');
+        return $this->belongsToMany(characteristic::class, 'characteristic_domes');
     }
 
     public function domeDetails()
