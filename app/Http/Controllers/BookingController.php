@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\Customer;
-use App\Models\Dome;
-use App\Models\Offer;
+use App\Models\dome;
+use App\Models\offer;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -39,9 +39,9 @@ class BookingController extends Controller
     {
         $booking = new Booking();
         $customers = Customer::all();
-        $domes = Dome::all();
+        $domes = dome::all();
         $users = User::all();
-        $offers = Offer::all();
+        $offers = offer::all();
         $services = Service::all();
         return view('booking.create', compact('booking','customers','domes','users','offers','services'));
     }
@@ -115,9 +115,9 @@ class BookingController extends Controller
     public function show($id)
     {
         $customers = Customer::all();
-        $domes = Dome::all();
+        $domes = dome::all();
         $users = User::all();
-        $offers = Offer::all();
+        $offers = offer::all();
         $services = Service::all();
         $booking = Booking::find($id);
 
@@ -134,9 +134,9 @@ class BookingController extends Controller
     {
         $booking = Booking::find($id);
         $customers = Customer::all();
-        $domes = Dome::all();
+        $domes = dome::all();
         $users = User::all();
-        $offers = Offer::all();
+        $offers = offer::all();
         $services = Service::all();
 
         return view('booking.edit', compact('booking','customers','domes','users','offers','services'));
